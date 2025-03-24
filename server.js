@@ -20,6 +20,8 @@ kunde.Vorname = "Pit"
 kunde.Benutzername = "pk"
 kunde.Kennwort = "123"
 kunde.IstEingeloggt = false
+kunde.email = false
+// ich habe unten in der server.js Aufgabe 6 bearbeiet
 
 // Klassenefinition des Kundenberaters
 class Kundenberater{
@@ -419,7 +421,7 @@ app.post('/login', (req, res) => {
 	// Es muss geprüft werden, ob der Kunde mit diesem Benutzernamen das richtige
 	// Kennwort eingeben hat.
 
-	let meldung = "";
+	let meldung = "Bitte Benutzername und Kennwort eingeben.";
 
 	// Die Kontrollstruktur prüft auf die Korrektheit der Zugangsdaten,
 	if(kunde.Benutzername == benutzername && kunde.Kennwort == kennwort){
@@ -446,7 +448,7 @@ app.post('/login', (req, res) => {
 
 		// Wenn die Eingangebdaten korrekt sind, dann wird die index-Seite gerendert.
 		res.render('index.ejs',{
-			Meldung: meldung
+			Meldung: "meldung"
 		});
 
 	}else{
@@ -457,10 +459,43 @@ app.post('/login', (req, res) => {
 
 		// Wenn die Zugangsdaten nicht korrekt sind, dann wird die login-Seite erneut gerendert.
 		res.render('login.ejs',{
-			Meldung: meldung
+			Meldung: "meldung"
 		});
 	}
 });
+
+app.post('/login', (req, res) => {
+
+	let email = req.body.Email;
+	console.log("login: Gewünschte Mail: " + kunde.email)
+
+	if(kunde.email=neue email){
+	
+		console.log("Die Zugangsdaten wurden neu eingegeben.")
+		meldung = "Die Zugangsdaten wurden neu eingegeben";
+		
+		kunde.email = true;
+		console.log("kunde.email: " + kunde.email)
+
+		res.cookie('istAngemeldetAls', JSON.stringify(kunde) , { maxAge: 900000, httpOnly: true, signed: false });
+		console.log("Das emailobjekt im Cookie gespeichert.")
+		
+		res.render('index.ejs',{
+			Meldung: "meldung"
+		});
+
+	}else{
+		console.log("Die email ist nicht gültig.")
+		meldung = "Die enmail ist nicht gültig."
+		kunde.email = false;
+		console.log("kunde.email: " + kunde.email)
+
+		res.render('login.ejs',{
+			Meldung: "meldung"
+		});
+	}
+});
+
 
 
 

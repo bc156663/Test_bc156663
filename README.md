@@ -11,6 +11,13 @@ Am Ende müssen Sie Ihr Projekt commiten und pushen. Senden Sie mir den Link in 
 
 Beantworten Sie die folgenden Frage hier direkt im Text: Welche Aufgabe haben cookies in unserer Banking-App?
 
+Mit Hilfe der Cookies werden Daten vom Nutzer der App auf unserer Seite gespeichert. Die Cookies werden sofort beim verlassen der Seite gelöscht und beim erneuten Aufrufen wieder hergestellt. Das erzeugt, dass der Nutzer die Seite nach dem Schließsen der Seite wieder an der Stelle ist, an der er sie geschlossen hat.
+
+Warum sind Passkeys besser, als die Kombination aus Benutzername/
+Kennwort?
+
+Passkeys sind schwieriger zu hacken, als die Kombination aus Nutzername und Kennwort, da sie verschlüsselt und nur beim Nutzer gespeichert sind. Die Schlüsselkombination ändert sich jedes mal und ist einmalig, während die Kombination aus Benutzername und Kennwort gleich bleibt, wenn sie nicht geändert wird. 
+
 ## Aufgabe 3
 
 Auf der Seite Hilfe sind vier Fehler eingebaut. Finden und korrigieren Sie die Fehler. Schreiben Sie zu jedem Fehler eine Kommentarzeile, in der Sie schreiben, was Sie korrigiert haben.
